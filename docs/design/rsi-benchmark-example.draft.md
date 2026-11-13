@@ -1,8 +1,10 @@
-# ThreadLine RSI 领域基准与 40 分计划样例
+# ThreadLine RSI 领域基准与 40 分计划样例（草稿）
 
-2026-11-12 · ThreadLine 扩展规格 04 · 供演示与测试
+2026-11-12
 
-配合 [02 领域能力追踪 PRD](02-research-maturity-prd.md)和 [03 评分与数据契约](03-scoring-and-data-spec.md)使用。本文件定义量表和验收数据；可执行测试在实现阶段建立。
+状态：设计示例草稿，用于讨论量表与预期行为；分值和记录是合成示例。
+
+配合 [领域能力追踪需求草稿](../prd/domain-assessment.draft.md)和 [评分与数据设计草稿](scoring-and-data.draft.md)讨论。本文件提出量表和验收数据示例，可供未来实现阶段设计测试时参考。
 
 ## 基准范围
 

@@ -1,8 +1,10 @@
-# ThreadLine 研究能力追踪的调研与设计依据
+# ThreadLine 学习评估调研与设计依据（草稿）
 
-2026-11-12 · ThreadLine 扩展规格 01
+2026-11-12
 
-本系列接续 [ThreadLine 总 PRD](PRD.md)。开发入口是 [02 领域能力追踪 PRD](02-research-maturity-prd.md)，评分、数据和验收见 [03 评分与数据契约](03-scoring-and-data-spec.md)，RSI 基准与验收样例见 [04](04-rsi-benchmark-fixture.md)。
+状态：调研草稿，保留证据、设计推测与待验证问题。
+
+本调研为 [ThreadLine 产品需求草稿](../prd/threadline.draft.md)中的能力追踪设想提供依据。相关讨论见 [领域能力追踪需求草稿](../prd/domain-assessment.draft.md)、[评分与数据设计草稿](../design/scoring-and-data.draft.md)和 [RSI 基准示例草稿](../design/rsi-benchmark-example.draft.md)。
 
 ## 结论
 

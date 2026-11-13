@@ -1,0 +1,35 @@
+schema: spec-driven
+
+context: |
+  ThreadLine 当前只初始化 AI 协作框架和 Spec 架构，尚无应用实现。
+  调研和需求仍在整理。docs/research/ 保存调研依据，docs/prd/ 保存产品需求草稿，docs/design/ 保存设计方案与示例。
+  上述材料使用 .draft.md 文件名，均待讨论，不是已确认需求或设计基线；导航入口为 docs/README.md。
+  当前没有已确认的规格，也没有进行中的实施变更；不要从现有材料自动拆解产品需求、实施任务或能力规格。
+  待用户明确需求与实施范围后，再使用标准 OpenSpec 工作流推进对应变更。
+  技术栈和部署方案尚未确定；记录事实、假设和待决事项时应明确区分，不把建议写成已作出的决定。
+  使用中文编写正文，保留 OpenSpec 的英文结构标题以及 SHALL/MUST、WHEN/THEN 等结构关键词。
+  开始工作先读根目录 AGENTS.md。openspec/specs 和 openspec/changes 当前只保留目录结构。
+
+rules:
+  proposal:
+    - 只在已明确的工作范围内创建变更；说明问题、范围、非目标和依据，不将研究材料自动升级为已确认需求。
+    - 使用标准 New Capabilities/Modified Capabilities 分类；尚待确定的内容保留为开放问题。
+  specs:
+    - 每项需求可独立验收；Requirement 使用 SHALL 或 MUST，Scenario 使用 WHEN/THEN 描述可观察行为。
+    - 引用已确认的需求依据；没有需求变更时不要为通过校验而编造 delta。
+    - 变更采用 ADDED/MODIFIED/REMOVED/RENAMED Requirements；修改需求时包含完整需求及其场景。
+  design:
+    - 区分已核实事实、设计选择和待验证假设，并记录选择理由与替代方案。
+    - 设计深度与变更范围相称，记录相关风险、验证方法和开放问题。
+  tasks:
+    - 使用可勾选的小任务，按依赖顺序列出实现、相关场景验证和文档同步；没有证据不要标记完成。
+    - 仅安排本次变更范围内的工作，并说明验证命令或验收方式。
+
+operations:
+  apply:
+    guidance:
+      - 先读取变更状态和当前 instructions，确认实施范围后推进任务；规划文档完整不代表实现完成。
+      - 运行与改动相关的验证和 npm run check；报告未执行或失败的检查及实际影响。
+  archive:
+    guidance:
+      - 核对任务状态与验证证据，按官方工作流同步真实 delta 并归档，准确报告完成情况。

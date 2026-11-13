@@ -1,29 +1,56 @@
 # ThreadLine
 
-帮助经常用 AI 学习、推进实际项目的人跨会话继续学习，连接目标、学过的内容、当前卡点、能力证据与下一步。
+一个用于跨会话接续学习、管理计划与学习记录的私人工作台。GPT 负责自然语言交互，工作台承载可查看、可纠正的数据；产品范围仍在调研和完善。
 
-GPT 负责自然语言录入和学习交流，Site 保存可查看、可纠错的计划与学习记录，Notion 用于长篇笔记和稳定成果。用户可以在“学习档案”中检查系统记住了什么，并修正错误记录。
+**当前仅完成仓库与 AI 开发流程初始化。** 现有 PRD 是工作草稿，尚未拆分能力规格、安排产品实施任务或选择应用技术栈。
 
-## 当前状态
+## 文档入口
 
-项目处于需求设计阶段。仓库已收录完整 PRD 和配套规格，包含 2026-11-13 新增的学习档案需求；应用代码尚未开始实现。
-
-## 产品文档
-
-| 文档 | 用途 |
+| 内容 | 入口 |
 | --- | --- |
-| [总 PRD](docs/prd/PRD.md) | 产品范围、主要流程、页面、学习档案、数据职责、分期与验收。 |
-| [01 调研与设计依据](docs/prd/01-assessment-research.md) | 领域能力追踪的研究依据、设计取舍与待验证假设。 |
-| [02 领域能力追踪 PRD](docs/prd/02-research-maturity-prd.md) | 领域基准、计划目标、证据判定、自评与能力异议。 |
-| [03 评分与数据契约](docs/prd/03-scoring-and-data-spec.md) | 评分口径、对象关系、接口一致性、纠错生效与验收条件。 |
-| [04 RSI 基准与验收样例](docs/prd/04-rsi-benchmark-fixture.md) | 一个领域的 100 分量表、40 分计划及示例状态变化。 |
+| 全部草稿与命名约定 | [文档索引](docs/README.md) |
+| 产品需求工作稿 | [产品需求](docs/prd/threadline.draft.md) · [领域能力追踪](docs/prd/domain-assessment.draft.md) |
+| 调研依据 | [学习评估调研](docs/research/learning-assessment.draft.md) |
+| 设计工作稿与示例 | [评分与数据设计](docs/design/scoring-and-data.draft.md) · [RSI 基准示例](docs/design/rsi-benchmark-example.draft.md) |
+| 当前阶段与接手入口 | [STATUS.md](STATUS.md) · [AGENTS.md](AGENTS.md) |
+| 规格架构与开发流程 | [OpenSpec 结构](openspec/README.md) · [工作流](docs/development/workflow.md) |
+| 框架选择理由 | [ADR 0001](docs/architecture/decisions/0001-spec-driven-development.md) |
 
-## 开发入口
+## AI 开发框架
 
-开发前先阅读 [AGENTS.md](AGENTS.md) 和总 PRD，再按任务阅读 02、03、04；01 用于理解设计依据。仓库中的文档可独立阅读，文件之间使用相对链接。
+采用 **OpenSpec + 通用 AGENTS.md + Git/PR 审阅 + 自动检查**。使用官方 `spec-driven` schema 和精确固定的 CLI 版本，不依赖某一种 AI 客户端。
 
-P0 先完成计划、活动、跨会话接续与学习档案的完整流程。学习档案需要能查看来源、直接编辑、区分用户自述与系统判断，并让后续接续使用更正后的有效记录。完整能力评分与知识图谱按 PRD 分阶段接入。
+```text
+AGENTS.md                 AI 协作规则
+STATUS.md                 当前阶段与交接入口
+docs/
+  README.md               文档索引与命名约定
+  prd/                    产品需求草稿
+  research/               调研依据、假设与待验证问题
+  design/                 探索中的设计方案与示例
+  architecture/decisions/ 框架与技术决策记录
+  development/            开发工作流
+openspec/
+  config.yaml             共享配置与通用约束
+  specs/                  当前系统行为规格，目前为空
+  changes/
+    archive/              已完成变更，目前为空
+scripts/                  仓库与规格检查
+.github/                  CI、Issue 和 PR 模板
+```
 
-## 文档维护
+调研和 PRD 不会自动变成已确认规格。后续进入具体开发时，再创建包含方案、设计、任务与必要规格差异的 change；实现并验证后同步主规格、归档变更。目录语义见 [OpenSpec 说明](openspec/README.md)。
 
-本仓库中的 `docs/prd/` 作为云端开发时的需求依据。需求变化直接修订对应文件，通过 Git 历史保留版本；同步外部文档时检查内容差异，避免旧副本覆盖新决定。
+## 本地检查
+
+需要 Node.js 22.12 或更高版本（CI 使用 Node 24）、npm、Python 3.9 或更高版本，以及 Git。
+
+```bash
+npm ci --ignore-scripts
+npm run check
+npm exec -- openspec list
+```
+
+`npm run check` 检查文本和仓库内链接；有规格或活动变更时执行 OpenSpec 严格校验。目前规格目录为空，会明确报告跳过。
+
+npm 依赖只用于规格工具，尚无应用启动、数据库或部署配置。后续产品开发沿用这套框架，应用技术选型另记 ADR。
