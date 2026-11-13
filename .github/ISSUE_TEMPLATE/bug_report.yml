@@ -1,0 +1,36 @@
+name: 问题反馈
+description: 报告文档、配置或后续功能中遇到的问题。
+body:
+  - type: textarea
+    id: description
+    attributes:
+      label: 问题描述
+      description: 请说明遇到了什么问题，以及涉及的文件或页面。
+    validations:
+      required: true
+  - type: textarea
+    id: reproduction
+    attributes:
+      label: 复现步骤
+      description: 列出操作步骤；文档问题可直接指出文件位置和原文。
+    validations:
+      required: true
+  - type: textarea
+    id: expected
+    attributes:
+      label: 期望结果
+      description: 你期望看到什么？
+    validations:
+      required: true
+  - type: textarea
+    id: actual
+    attributes:
+      label: 实际结果
+      description: 实际发生了什么？如附日志，请先删除令牌、密码等敏感信息。
+    validations:
+      required: true
+  - type: textarea
+    id: environment
+    attributes:
+      label: 环境信息（可选）
+      description: 如与问题有关，请提供操作系统、工具版本或使用的提交。

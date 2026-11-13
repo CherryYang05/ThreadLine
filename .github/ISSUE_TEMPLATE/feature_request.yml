@@ -1,0 +1,22 @@
+name: 功能建议
+description: 提出改进项目的想法。
+body:
+  - type: textarea
+    id: problem
+    attributes:
+      label: 希望解决的问题
+      description: 请说明使用场景、遇到的困难，以及谁会受益。
+    validations:
+      required: true
+  - type: textarea
+    id: proposal
+    attributes:
+      label: 建议方案
+      description: 你希望如何改进？可以附示例。
+    validations:
+      required: true
+  - type: textarea
+    id: alternatives
+    attributes:
+      label: 其他方案（可选）
+      description: 是否考虑过其他做法？各有什么取舍？
