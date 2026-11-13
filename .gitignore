@@ -1,25 +1,24 @@
-# Operating system files
-.DS_Store
-._*
-Thumbs.db
-Desktop.ini
+# Local dependencies and generated output
+node_modules/
+dist/
+build/
+coverage/
+.npm/
+*.tsbuildinfo
+__pycache__/
+*.py[cod]
 
-# Editor-local files
-.idea/
-.vscode/
-*.swp
-*.swo
-*~
-
-# Local environment and secrets
+# Credentials and local environment (examples remain versioned)
 .env
 .env.*
 !.env.example
 !.env.*.example
-
-# Local logs
 *.log
 
-# Python repository tooling caches
-__pycache__/
-*.py[cod]
+# Editor and operating system files
+.DS_Store
+Thumbs.db
+.idea/
+.vscode/
+*.swp
+*.swo

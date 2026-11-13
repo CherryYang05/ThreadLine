@@ -1,36 +1,27 @@
 name: 问题反馈
-description: 报告文档、配置或后续功能中遇到的问题。
+description: 报告规格、文档、开发工具或实现中的问题。
 body:
   - type: textarea
-    id: description
+    id: problem
     attributes:
-      label: 问题描述
-      description: 请说明遇到了什么问题，以及涉及的文件或页面。
+      label: 问题与影响
+      description: 说明遇到的问题、影响范围及所用分支或提交。
     validations:
       required: true
+  - type: textarea
+    id: specification
+    attributes:
+      label: 关联规格（可选）
+      description: 填写 PRD 章节、OpenSpec change 或 Requirement ID，例如 TL-CAP-001。
   - type: textarea
     id: reproduction
     attributes:
-      label: 复现步骤
-      description: 列出操作步骤；文档问题可直接指出文件位置和原文。
+      label: 复现与预期
+      description: 列出复现步骤、预期行为和实际结果；文档问题可提供文件位置。
     validations:
       required: true
   - type: textarea
-    id: expected
+    id: evidence
     attributes:
-      label: 期望结果
-      description: 你期望看到什么？
-    validations:
-      required: true
-  - type: textarea
-    id: actual
-    attributes:
-      label: 实际结果
-      description: 实际发生了什么？如附日志，请先删除令牌、密码等敏感信息。
-    validations:
-      required: true
-  - type: textarea
-    id: environment
-    attributes:
-      label: 环境信息（可选）
-      description: 如与问题有关，请提供操作系统、工具版本或使用的提交。
+      label: 验证证据（可选）
+      description: 提供实际执行的命令、退出状态或脱敏截图；未验证请说明。不要上传凭据或私人学习记录。

@@ -1,0 +1,16 @@
+{
+  "name": "threadline",
+  "version": "0.0.0",
+  "private": true,
+  "description": "ThreadLine product specifications and AI development workflow",
+  "engines": {
+    "node": ">=22.12.0"
+  },
+  "scripts": {
+    "spec:validate": "python3 scripts/validate_specs.py",
+    "check": "python3 scripts/check_repository.py && npm run spec:validate"
+  },
+  "devDependencies": {
+    "@fission-ai/openspec": "2.0.0"
+  }
+}

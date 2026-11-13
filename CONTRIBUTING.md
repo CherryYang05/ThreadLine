@@ -1,33 +1,9 @@
-# 贡献指南
+# 参与协作
 
-ThreadLine 当前处于需求整理阶段。开始前请阅读 [README](README.md)、[需求来源](docs/requirements/sources.md) 和 [首版需求梳理](docs/requirements/mvp.md)。
+从 [STATUS.md](STATUS.md) 与 [AGENTS.md](AGENTS.md) 开始。调研、需求编辑和代码开发都使用可审阅的小改动，保留来源与真实状态。
 
-## 提交改动
+当前无需为普通调研或文档整理创建 OpenSpec change。进入具体功能开发后，按[开发工作流](docs/development/workflow.md)管理方案、设计、规格差异与实施任务。
 
-1. 查看现有 Issue 与分支，说明要解决的具体问题。
-2. 从最新的默认分支创建独立分支。当前默认分支为 master。
-3. 保持改动范围清晰，需求和行为变化同步更新相关文档与验收场景。
-4. 提交 Pull Request，写明改动原因、验证方式和待解决的问题。
+PR 说明问题、改动范围及实际检查结果；有相关 change 时附上链接。运行 `npm run check`，行为改动另做相应测试。没有实施的内容不得写成已交付，规格通过不代表产品验收通过。
 
-需求问题可使用[功能建议模板](.github/ISSUE_TEMPLATE/feature_request.yml)；文档、配置或实现缺陷可使用[问题反馈模板](.github/ISSUE_TEMPLATE/bug_report.yml)。
-
-## 验证
-
-目前没有应用测试或构建命令。先使用 Git 和 Python 3.10+ 运行仓库检查：
-
-```sh
-python3 scripts/check_repository.py
-```
-
-该命令也用于 GitHub 自动检查，覆盖文本格式和 Markdown 本地文件链接。它不检查 YAML 语法、外部链接或标题锚点。文档及配置改动还需检查：
-
-- git diff --check 无空白错误；暂存后也检查 git diff --cached --check。
-- Markdown 相对链接指向现有文件。
-- GitHub Issue 表单的 YAML 可解析，字段 ID 唯一，必填项合理。
-- 项目状态、功能描述和执行结果与仓库实际内容一致。
-
-引入代码时，随实现提供适用的验证命令，并在 PR 中记录实际执行结果。
-
-## 资料与示例
-
-使用合成学习记录和脱敏日志。不要提交真实用户数据、私有对话或凭据。引用新需求时说明来源版本，并将提案与已经明确的需求区分开。
+不提交个人学习数据、密钥或凭证。尊重已有改动，不通过重新生成文件覆盖用户维护的需求材料。

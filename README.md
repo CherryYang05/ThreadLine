@@ -1,43 +1,53 @@
 # ThreadLine
 
-Personal Context & Memory for project-based learning.
+一个用于跨会话接续学习、管理计划与学习记录的私人工作台。GPT 负责自然语言交互，工作台承载可查看、可纠正的数据；产品范围仍在调研和完善。
 
-ThreadLine 帮助经常用 AI 学习、推进项目的人，保存当前目标、学习经历、卡点和下一步，在新的会话中继续工作。学习档案让用户看到系统记录了什么，查看依据，并纠正错误。
+**当前仅完成仓库与 AI 开发流程初始化。** 现有 PRD 是工作草稿，尚未拆分能力规格、安排产品实施任务或选择应用技术栈。
 
-## 当前状态
+## 文档入口
 
-项目处于需求整理与仓库初始化阶段，尚无可运行的应用、API 或部署版本。本仓库目前提供产品范围、设计建议、开发约定、协作模板和自动检查。
-
-需求梳理依据已有项目讨论，以及最新的“学习档案”需求变更摘要；资料空间中的三份 PRD 正文尚待读取和逐项核对。来源与完整性见[需求来源](docs/requirements/sources.md)。
-
-## 首版要完成的流程
-
-1. 开始学习时，恢复当前目标、任务、卡点、下一步和停止条件。
-2. 结束时，记录实际发生的活动、产物和接续点，保留来源及辅助条件。
-3. 在学习档案中查看和纠正记录，让之后的接续使用更正后的状态。
-
-任务完成、用户自评和有证据支持的能力判断分别记录。一次讨论或 AI 生成的产物，不能直接作为用户已经掌握的结论。
-
-## 文档导航
-
-| 文档 | 内容 |
+| 内容 | 入口 |
 | --- | --- |
-| [首版需求梳理](docs/requirements/mvp.md) | 范围、学习档案行为和验收场景 |
-| [需求来源](docs/requirements/sources.md) | 已读取内容、待核对原件及处理原则 |
-| [实施顺序](docs/product/roadmap.md) | 分阶段交付与完成条件 |
-| [架构设计建议](docs/architecture/design-notes.md) | 状态存储、纠错、一致性和接口边界 |
-| [开发入门](docs/development/getting-started.md) | 本地环境、仓库检查和初始化状态 |
-| [贡献指南](CONTRIBUTING.md) | 提交改动和验证方式 |
-| [Agent 开发约定](AGENTS.md) | 跨会话开发时需要遵守的项目约束 |
+| 产品需求工作稿 | [总 PRD](docs/prd/PRD.md) |
+| 能力追踪研究与需求 | [研究说明](docs/prd/01-assessment-research.md) · [领域能力 PRD](docs/prd/02-research-maturity-prd.md) |
+| 数据与评分设计工作稿 | [数据契约](docs/prd/03-scoring-and-data-spec.md) · [RSI 样例](docs/prd/04-rsi-benchmark-fixture.md) |
+| 当前阶段与接手入口 | [STATUS.md](STATUS.md) · [AGENTS.md](AGENTS.md) |
+| 规格架构与开发流程 | [OpenSpec 结构](openspec/README.md) · [工作流](docs/development/workflow.md) |
+| 框架选择理由 | [ADR 0001](docs/architecture/decisions/0001-spec-driven-development.md) |
 
-技术栈、数据契约和部署方式将在核对 PRD 后确定。许可证尚未选定。
+## AI 开发框架
+
+采用 **OpenSpec + 通用 AGENTS.md + Git/PR 审阅 + 自动检查**。使用官方 `spec-driven` schema 和精确固定的 CLI 版本，不依赖某一种 AI 客户端。
+
+```text
+AGENTS.md                 AI 协作规则
+STATUS.md                 当前阶段与交接入口
+docs/
+  prd/                    用户上传的需求工作稿，保留原文
+  research/               后续调研材料与待验证结论
+  architecture/decisions/ 框架与技术决策记录
+  development/            开发工作流
+openspec/
+  config.yaml             共享配置与通用约束
+  specs/                  当前系统行为规格，目前为空
+  changes/
+    archive/              已完成变更，目前为空
+scripts/                  仓库与规格检查
+.github/                  CI、Issue 和 PR 模板
+```
+
+调研和 PRD 不会自动变成已确认规格。后续进入具体开发时，再创建包含方案、设计、任务与必要规格差异的 change；实现并验证后同步主规格、归档变更。目录语义见 [OpenSpec 说明](openspec/README.md)。
 
 ## 本地检查
 
-需要 Git 和 Python 3.10+，无需安装第三方依赖：
+需要 Node.js 22.12 或更高版本（CI 使用 Node 24）、npm、Python 3.9 或更高版本，以及 Git。
 
-```sh
-python3 scripts/check_repository.py
+```bash
+npm ci --ignore-scripts
+npm run check
+npm exec -- openspec list
 ```
 
-同一命令也由 GitHub Actions 在 PR 更新和 master 分支提交时运行。检查覆盖文本格式和本地文档链接，详见[开发入门](docs/development/getting-started.md)。
+`npm run check` 检查文本和仓库内链接；有规格或活动变更时执行 OpenSpec 严格校验。目前规格目录为空，会明确报告跳过。
+
+npm 依赖只用于规格工具，尚无应用启动、数据库或部署配置。后续产品开发沿用这套框架，应用技术选型另记 ADR。

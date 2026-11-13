@@ -1,22 +1,29 @@
-name: 功能建议
-description: 提出改进项目的想法。
+name: 需求建议
+description: 提出可追溯、可验收的需求或改进。
 body:
   - type: textarea
     id: problem
     attributes:
       label: 希望解决的问题
-      description: 请说明使用场景、遇到的困难，以及谁会受益。
+      description: 描述使用场景、当前困难和期望结果。
     validations:
       required: true
   - type: textarea
-    id: proposal
+    id: scope
     attributes:
-      label: 建议方案
-      description: 你希望如何改进？可以附示例。
+      label: 建议范围
+      description: 说明建议改动及本次无需涉及的部分。
     validations:
       required: true
   - type: textarea
-    id: alternatives
+    id: specification
     attributes:
-      label: 其他方案（可选）
-      description: 是否考虑过其他做法？各有什么取舍？
+      label: 关联规格（可选）
+      description: 引用 PRD 章节、OpenSpec capability、change 或 Requirement ID；新增需求可说明尚无对应项。
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: 如何验收
+      description: 给出可观察的行为和验证方法；已尝试的方案可附实际结果。
+    validations:
+      required: true
