@@ -19,3 +19,7 @@ Desktop.ini
 
 # Local logs
 *.log
+
+# Python repository tooling caches
+__pycache__/
+*.py[cod]

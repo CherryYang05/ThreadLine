@@ -13,7 +13,13 @@ ThreadLine 当前处于需求整理阶段。开始前请阅读 [README](README.m
 
 ## 验证
 
-目前没有应用测试或构建命令。文档及配置改动至少检查：
+目前没有应用测试或构建命令。先使用 Git 和 Python 3.10+ 运行仓库检查：
+
+```sh
+python3 scripts/check_repository.py
+```
+
+该命令也用于 GitHub 自动检查，覆盖文本格式和 Markdown 本地文件链接。它不检查 YAML 语法、外部链接或标题锚点。文档及配置改动还需检查：
 
 - git diff --check 无空白错误；暂存后也检查 git diff --cached --check。
 - Markdown 相对链接指向现有文件。

@@ -6,7 +6,7 @@ ThreadLine 帮助经常用 AI 学习、推进项目的人，保存当前目标�
 
 ## 当前状态
 
-项目处于需求整理阶段，尚无可运行的应用、API 或部署版本。本仓库目前提供产品范围、设计建议、开发约定和协作模板。
+项目处于需求整理与仓库初始化阶段，尚无可运行的应用、API 或部署版本。本仓库目前提供产品范围、设计建议、开发约定、协作模板和自动检查。
 
 需求梳理依据已有项目讨论，以及最新的“学习档案”需求变更摘要；资料空间中的三份 PRD 正文尚待读取和逐项核对。来源与完整性见[需求来源](docs/requirements/sources.md)。
 
@@ -26,7 +26,18 @@ ThreadLine 帮助经常用 AI 学习、推进项目的人，保存当前目标�
 | [需求来源](docs/requirements/sources.md) | 已读取内容、待核对原件及处理原则 |
 | [实施顺序](docs/product/roadmap.md) | 分阶段交付与完成条件 |
 | [架构设计建议](docs/architecture/design-notes.md) | 状态存储、纠错、一致性和接口边界 |
+| [开发入门](docs/development/getting-started.md) | 本地环境、仓库检查和初始化状态 |
 | [贡献指南](CONTRIBUTING.md) | 提交改动和验证方式 |
 | [Agent 开发约定](AGENTS.md) | 跨会话开发时需要遵守的项目约束 |
 
 技术栈、数据契约和部署方式将在核对 PRD 后确定。许可证尚未选定。
+
+## 本地检查
+
+需要 Git 和 Python 3.10+，无需安装第三方依赖：
+
+```sh
+python3 scripts/check_repository.py
+```
+
+同一命令也由 GitHub Actions 在 PR 更新和 master 分支提交时运行。检查覆盖文本格式和本地文档链接，详见[开发入门](docs/development/getting-started.md)。
