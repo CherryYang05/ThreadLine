@@ -8,6 +8,7 @@
 | --- | --- | --- |
 | 证据与假设 | `docs/research/` | 发现、来源、推测、待验证问题 |
 | 产品工作稿 | `docs/prd/` | 产品意图与仍在完善的需求，不因入库就视为确认 |
+| 探索性设计 | `docs/design/` | 数据、评分、接口方案与示例，仍待讨论 |
 | 变更提案 | `openspec/changes/<id>/proposal.md` | 某次具体改动的动机、范围与影响 |
 | 设计与任务 | 同一 change 的 `design.md`、`tasks.md` | 技术取舍及实施/验收状态 |
 | 规格差异 | 同一 change 的 `specs/<capability>/spec.md` | 本次新增、修改、移除或重命名的行为 |
@@ -15,6 +16,8 @@
 | 已完成变更 | `openspec/changes/archive/` | 变更提案、差异、设计与完成证据的历史 |
 
 路径中的 `<id>` 和 `<capability>` 是格式占位，不是预定的产品模块。
+
+早期材料按用途整理在[文档索引](../docs/README.md)，使用 `.draft.md` 标识。探索性设计留在 `docs/design/`；具体开发变更确定后，相关设计取舍写入该 change 的 `design.md`，已采纳的架构选择再记录为 ADR。
 
 ## 未来规格的格式
 

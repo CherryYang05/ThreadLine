@@ -8,9 +8,10 @@
 
 | 内容 | 入口 |
 | --- | --- |
-| 产品需求工作稿 | [总 PRD](docs/prd/PRD.md) |
-| 能力追踪研究与需求 | [研究说明](docs/prd/01-assessment-research.md) · [领域能力 PRD](docs/prd/02-research-maturity-prd.md) |
-| 数据与评分设计工作稿 | [数据契约](docs/prd/03-scoring-and-data-spec.md) · [RSI 样例](docs/prd/04-rsi-benchmark-fixture.md) |
+| 全部草稿与命名约定 | [文档索引](docs/README.md) |
+| 产品需求工作稿 | [产品需求](docs/prd/threadline.draft.md) · [领域能力追踪](docs/prd/domain-assessment.draft.md) |
+| 调研依据 | [学习评估调研](docs/research/learning-assessment.draft.md) |
+| 设计工作稿与示例 | [评分与数据设计](docs/design/scoring-and-data.draft.md) · [RSI 基准示例](docs/design/rsi-benchmark-example.draft.md) |
 | 当前阶段与接手入口 | [STATUS.md](STATUS.md) · [AGENTS.md](AGENTS.md) |
 | 规格架构与开发流程 | [OpenSpec 结构](openspec/README.md) · [工作流](docs/development/workflow.md) |
 | 框架选择理由 | [ADR 0001](docs/architecture/decisions/0001-spec-driven-development.md) |
@@ -23,8 +24,10 @@
 AGENTS.md                 AI 协作规则
 STATUS.md                 当前阶段与交接入口
 docs/
-  prd/                    用户上传的需求工作稿，保留原文
-  research/               后续调研材料与待验证结论
+  README.md               文档索引与命名约定
+  prd/                    产品需求草稿
+  research/               调研依据、假设与待验证问题
+  design/                 探索中的设计方案与示例
   architecture/decisions/ 框架与技术决策记录
   development/            开发工作流
 openspec/
